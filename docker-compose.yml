@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 'api:prod'
+    restart: unless-stopped
+    container_name: api-henrique
+    ports:
+      - '3000:3000'
+  api2:
+    build:
+      context: .
+      dockerfile: Dockerfile.two
+    image: 'api:stag'
+    restart: unless-stopped
+    container_name: api-henrique-2
+    ports:
+      - '3001:3001'
